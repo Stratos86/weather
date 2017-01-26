@@ -14,9 +14,15 @@ $(function() {
     windchill: " and a windchill of ",
     date: "The forecast on ",
     is: " is ",
-    period: ". "
+    period: ". ",
+    tmrw: "The forecast for tomorrow is ",
+    second: "The forecast two days from now is ",
+    third: "The forecast three days from now is "
   }
-    var markup = text.current + weather.currently.summary + text.temp + Math.round(weather.currently.temperature) + text.windchill + Math.round(weather.currently.apparentTemperature-weather.currently.temperature)
+    var markup = text.current + weather.currently.summary + text.temp + Math.round(weather.currently.temperature) + text.windchill + Math.round(weather.currently.apparentTemperature-weather.currently.temperature) + text.period + "<br>"
+    + text.tmrw + weather.daily.data[1].summary + text.temp + Math.round(weather.daily.data[1].temperatureMax) + text.windchill + Math.round(weather.daily.data[1].apparentTemperatureMax - weather.daily.data[1].temperatureMax) + text.period + "<br>"
+    + text.second + weather.daily.data[2].summary + text.temp + Math.round(weather.daily.data[2].temperatureMax) + text.windchill + Math.round(weather.daily.data[2].apparentTemperatureMax - weather.daily.data[2].temperatureMax) + text.period + "<br>"
+    + text.third + weather.daily.data[3].summary + text.temp + Math.round(weather.daily.data[3].temperatureMax) + text.windchill + Math.round(weather.daily.data[3].apparentTemperatureMax - weather.daily.data[3].temperatureMax) + text.period
     // End of your code. No, really. Don't change anything below this, or above line 11.
 
     // Takes the contents of the "markup" variable (which should contain HTML)
